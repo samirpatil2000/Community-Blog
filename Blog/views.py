@@ -106,7 +106,6 @@ class PostListView(ListView):
     paginate_by = 4
 
 
-
 class UserPostListView(ListView):
     model = Post
     template_name = 'blog/user_post.html'
@@ -157,7 +156,6 @@ class PostUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
         if self.request.user== post.author:
             return True
         return False
-
 
 
 class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):

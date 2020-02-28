@@ -33,8 +33,6 @@ def profile(request):
             p_form.save()
             messages.success(request, f' Your Account Has Been Updated !')
             return redirect('profile')
-
-
     else:
         u_form = UserUpadeteForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
@@ -43,7 +41,7 @@ def profile(request):
         'u_form':u_form ,
         'p_form':p_form
     }
-    return render(request,'users/profile.html',context)
+    return render(request,'users/Profile_Edit.html',context)
 
 
 

@@ -40,7 +40,11 @@
       <h2>{{ view.kwargs.username }}</h2>
 
       <img class="profileimg" src="{{ object.author.profile.image.url }}">
+        {% if posts %}
         <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+        {% endif %}
+         <h2 class="'article-title">{{ object.title }}</h2>
+            <p class="article-content">{{ object.content }}</p>
       <hr class="d-sm-none">
     </div>
       <div class="col-sm-7">
