@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 from django.views.generic import View
@@ -15,6 +16,8 @@ from django.core.mail import send_mail, send_mass_mail
 
 
 # Create your views here.
+
+
 def home(request):
 
     return render(request,'Blog/home.html')
@@ -31,22 +34,24 @@ def latest(request):
     }
     return render(request,'Blog/latest.html',context)
 
+def join_page(request):
+    return render(request,'Blog/joining_email.html')
+
+
 
 def send_email(request):
     if request.method =="GET":
-         name = request.GET.get('name', None)
+         # name = request.GET.get('name', None)
          email = request.GET.get('email', None)
          message = request.GET.get('message', None)
-        #
-         send_mail(
-                     'Subject - Django Email Testing',     # This is subject
-                     'Hello ' + name + ',\n' + message,    # This is Body meance actual message that you wanted to sent
-                     'samirspatil742099@gmail.com',         # Admin
-                     [ email ]  ,                            # This is email from html template
-                     fail_silently=False
-                 )
+        # send_mail(subject,message,from_email,to_list,fail_silently=True)
+         subject="Joining request"
+         #message="welcome"
+         from_email=settings.EMAIL_HOST_USER
+         to_list=[email,settings.EMAIL_HOST_USER]
+         send_mail(subject,message,from_email,to_list,fail_silently=True)
 
-         return redirect(request,'joining-email')
+         return redirect(request,'Blog/joining_email.html')
 
 
     return render(request,'Blog/joining_email.html')
@@ -129,7 +134,7 @@ class PostDetailView(DetailView):
 #This is for profile Pic in UserPostListView
 class PostDetailViewForProfile(DetailView):
     model=Post
-    template_name = 'blog/user_post.html'
+    template_name = 'blog/user_public_profile.html'
 
 
 

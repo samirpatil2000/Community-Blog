@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-8 offset-xl-2 py-5">
-                <h1>Send Email Django Tutorial from </h1>
+                <h1>Send Email</h1>
 
 
                 <form id="contact-form" action="#" role="form">
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <input type="submit" class="btn btn-success btn-send" value="Send message">
+                                <input  href="{% url 'send_mail' %}"  type="submit" class="btn btn-success btn-send" value="Send message">
                             </div>
                         </div>
                     </div>

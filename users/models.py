@@ -8,6 +8,7 @@ class Profile(models.Model):
     image=models.ImageField(default='profile_icon.png',upload_to='profile_pics')
 
 
+
     def __str__(self):
         return f'{self.user.username} Profile'
 
