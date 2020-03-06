@@ -143,6 +143,20 @@ class PostCreateView(LoginRequiredMixin,CreateView):
     model = Post
     fields = ['title','sub_title','attractiv_lines','content','blog_image','blog_image_1']
 
+    title=Post._meta.get_field('title')
+    author=Post.author
+
+
+    #title = Post.cleaned_data.get('title')
+    #email = Post._meta.get_field('email')
+    email='bluekoko53@gmail.com'
+    subject = title,author
+    message = "New Post Is Created "
+    from_email = settings.EMAIL_HOST_USER
+    to_list = [email, settings.EMAIL_HOST_USER]
+    send_mail(subject, message, from_email, to_list, fail_silently=True)
+
+
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
@@ -165,7 +179,7 @@ class PostUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
 
 class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
     model = Post
-    success_url = '/latest'
+    success_url = '/'
 
     def test_func(self):
         post= self.get_object()

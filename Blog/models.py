@@ -7,15 +7,16 @@ from PIL import Image
 
 # Create your models here.
 class Post(models.Model):
+
     title=models.CharField(max_length=50)
     sub_title=models.CharField(default="This is the subtitle of the post ",max_length=150)
     attractiv_lines=models.TextField(default="This is attractive lines that attract the people ",max_length=1000)
     content=models.TextField(max_length=4000)
     date_posted=models.DateTimeField(default=timezone.now)
-    blog_image=models.ImageField(default='profile_icon.png',upload_to='profile_pics')
+    blog_image=models.ImageField(default='profile_icon.png',upload_to='blog_pics')
     #blog_image=models.ImageField(default='default_1.png',upload_to='blog_pics')
    # blog_image_1=models.ImageField(default='default.jpg',upload_to='media')
-    blog_image_1=models.ImageField(default='default.jpg',upload_to='media')
+    blog_image_1=models.ImageField(default='default.jpg',upload_to='blog_pics')
     #blog_image_1=models.ImageField(upload_to='blog_pics')
     author =models.ForeignKey(User,on_delete=models.CASCADE)   #this for if we delete the user the post will also deleted and not vice versa
 
