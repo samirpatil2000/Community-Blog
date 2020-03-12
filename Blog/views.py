@@ -13,6 +13,8 @@ from django.core.mail import send_mail, send_mass_mail
 
 
 
+# from .forms import PostUpdateForm
+
 
 
 # Create your views here.
@@ -108,7 +110,7 @@ class PostListView(ListView):
                                            #<app>/<model>_<viewtype>.html
     context_object_name = 'posts'
     ordering = ['-date_posted']
-    paginate_by = 4
+    paginate_by = 5
 
 
 class UserPostListView(ListView):
@@ -117,7 +119,7 @@ class UserPostListView(ListView):
                                            #<app>/<model>_<viewtype>.html
     context_object_name = 'posts'
    # ordering = ['-date_posted']
-    paginate_by = 4
+    paginate_by = 5
 
     def get_queryset(self):
         user= get_object_or_404(User,username=self.kwargs.get('username'))
@@ -141,7 +143,7 @@ class PostDetailViewForProfile(DetailView):
 
 class PostCreateView(LoginRequiredMixin,CreateView):
     model = Post
-    fields = ['title','sub_title','attractiv_lines','content','blog_image','blog_image_1']
+    fields = ['title','sub_title','attractiv_lines','content','blog_image_1','content_2']
 
     title=Post._meta.get_field('title')
     author=Post.author
@@ -162,9 +164,11 @@ class PostCreateView(LoginRequiredMixin,CreateView):
         return super().form_valid(form)
 
 
+
+
 class PostUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
     model = Post
-    fields = ['title','sub_title','attractiv_lines','content','blog_image','blog_image_1']
+    fields = ['title','sub_title','attractiv_lines','content','blog_image_1','content_2']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -175,6 +179,7 @@ class PostUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
         if self.request.user== post.author:
             return True
         return False
+
 
 
 class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
@@ -194,3 +199,13 @@ class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
 
 ## Now create the detail viwes for the user profile pictures and all
 #class ProfilePostDeatils
+
+
+# TJIS IS FOR CLASS
+
+# def imageupdate(request):
+#     image_form=PostUpdateForm()
+#     context={
+#         'image_form':image_form,
+#     }
+#     return render(request,'Blog/post_form.html',context)

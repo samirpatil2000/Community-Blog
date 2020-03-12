@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Blog',
     'users',
     'crispy_forms',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,28 @@ EMAIL_PORT=587
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER='samirspatil742099@gmail.com'
 EMAIL_HOST_PASSWORD='Bluesam@123'
+#
+# #AWS_ACCESS_KEY_ID= 'AKIA3NB2BLWVR2CX6AUN'
+# AWS_ACCESS_KEY_ID= 'AKIA3NB2BLWVX75YJJBN'
+# #AWS_SECRET_ACCESS_KEY='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'
+# AWS_SECRET_ACCESS_KEY='kK128hkNkgsSWySSk5igVzT7FRM72pkfW9vEjJyP'
+# AWS_STORAGE_BUCKET_NAME='django-community-blog-first'
+#
+# AWS_S3_FILE_OVERWRITE =False  #rename the same file uploaded
+# AWS_DEFAULT_ACL =None
+#
+#
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+# #AWS_ACCESS_KEY_ID= 'AKIA3NB2BLWVR2CX6AUN'
+AWS_ACCESS_KEY_ID= 'AKIA3NB2BLWVYLJ74FTM'
+AWS_SECRET_ACCESS_KEY='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'
+# AWS_SECRET_ACCESS_KEY='kK128hkNkgsSWySSk5igVzT7FRM72pkfW9vEjJyP'
+AWS_STORAGE_BUCKET_NAME='django-sam-first'
+#
+AWS_S3_FILE_OVERWRITE = False  #rename the same file uploaded
+AWS_DEFAULT_ACL = None
+#
+#
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

@@ -18,9 +18,13 @@
     }
 
     .img {
-    height: 350px;
-    width: 500px;
-    background: #aaa;
+
+
+     width: 100%;
+     max-width: 400px;
+     height: auto;
+     padding-left: 10%;
+
 
   }
 
@@ -29,6 +33,14 @@
 
 <br>
 <div class="container">
+      <div class="jumbotron">
+          <h1 class="display-4">Welcome </h1>
+          <p class="lead">This is a simple hero unit, or information.</p>
+          <hr class="my-4">
+          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+     </div>
+      <br>
     {% for post in posts %}
         <!--<article class="'media content-section">
           <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
@@ -54,16 +66,28 @@
 
 
       <div class="row row-cols-1 row-cols-md-1">
-        <div class="col mb-4">
+        <div class="col mb-3"> <!-- This is for bottom -->
         <div class="card">
+            <br>
+            <h3>
+                <a class="mr-2"  >&nbsp;
+                <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}" width="50" height="50">
+                    <a href="{% url 'user-posts' post.author.username %}"> <font size="6"  face="Courier" color="#29206C"> &nbsp;{{post.author.first_name }}  {{post.author.last_name}}</font></a>
+                </a>
+            </h3>
+            <hr  class="border border">
+
           <img src="/media/{{ post.blog_image_1 }}" class="img" alt="...">
           <div class="card-body">
-            <h5 class="card-title">{{ post.title }}</h5>
-               <div class="article-metadata">
-                    <a class="mr-2" href="#">{{ post.author }}</a>
-                    <small class="'text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+              <!--<hr class="d-sm-none"> -->
+              <hr  class="border border">
+                <div>
+                    <div class="card-title"><h3>{{ post.title }}</h3>
+                    <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                     </div>
                 </div>
-              <br>
+
+
             <p class="card-text">{{ post.attractiv_lines }}</p>
                <a href="{% url 'post-detail' post.id%}" class="btn btn-primary">Continue Reading</a>
           </div>

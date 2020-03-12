@@ -6,6 +6,7 @@ from PIL import Image
 class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     image=models.ImageField(default='profile_icon.png',upload_to='profile_pics')
+    Boi=models.TextField(default='Add here')
 
 
 

@@ -30,23 +30,64 @@
 
 <div class="container" style="margin-top:30px">
   <div class="row">
-    <div class="col-sm-3">
-      <h2>{{ view.kwargs.username }}</h2>
 
-      <!--<img class="profileimg" src="{{ posts.author.profile.image.url }}"> -->
-      <img class="profileimg" src="{{ user.profile.image.url }}">
 
-            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
-         <h2 class="'article-title">{{ object.title }}</h2>
-            <p class="article-content">{{ object.content }}</p>
+
+
+
+
+
+              <div class="col-sm-4">
+              <div class="panel panel-default">
+              <div class="panel-heading">  <h4 >{{posts.0.author.username}}</h4></div>
+               <div class="panel-body">
+              <div class="col-md-5 col-xs-12 col-sm-7 col-lg-7">
+               <img alt="User Pic" src="{{ posts.0.author.profile.image.url }}" id="profile-image1" class="img-circle img-responsive">
+
+
+              </div>
+              <div class="col-md-8 col-xs-12 col-sm-6 col-lg-10" >
+                  <div class="container" >
+                    <h2>{{ posts.0.author.first_name }}  {{posts.0.author.last_name}}</h2>
+                    <p>an   <b> </b></p>
+
+
+                  </div>
+                   <hr>
+                <!--  <ul class="container details" >
+                    <li><p><span class="glyphicon glyphicon-user one" style="width:50px;"></span>{{user.username}}</p></li>
+                    <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>{{.email}}</p></li>
+                  </ul> -->
+
+                     </div>
+                </div>
+                 </div>
+                 </div>
+
+
+
+
+
+
+
+
+    <!--<div class="col-sm-3">
+
+      <h2>{{posts.0.author.username}}</h2>
+        <h3> <small>{{posts.0.author.first_name}} {{posts.0.author.last_name}}</small></h3>
+
+      <img class="profileimg" src="{{ posts.0.author.profile.image.url }}">
+            <img class="rounded-circle article-img" src="{{ posts.0.author.profile.image.url }}">
+         <h2 class="'article-title">{{ post.0.title }}</h2>
       <hr class="d-sm-none">
-    </div>
+    </div> -->
       <div class="col-sm-7">
+          <h1> All Posts</h1>
         {% for post in posts %}
               <h2><a class="'article-title" href="{% url 'post-detail' post.id %}">{{post.title}}</a></h2>
              <h5><a class="mr-2" href="#">{{ post.author }}</a></h5>
               <h5>{{ post.date_posted|date:"F d, Y" }}</h5>
-              <img class="fakeimg" src="/media/{{ post.blog_image }}">
+             <!-- <img class="fakeimg" src="/media/{{ post.blog_image }}"> -->
               <img class="fakeimg" src="/media/{{ post.blog_image_1 }}">
               <!--   <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}"> -->
               <p>{{ post.sub_title }}</p>
@@ -85,7 +126,7 @@
 <div class="jumbotron text-center" style="margin-bottom:0">
   <p>Footer</p>
 </div>
-
+</div>
 
 {% endblock %}
 
