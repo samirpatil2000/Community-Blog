@@ -88,8 +88,8 @@
                 </div>
 
 
-            <p class="card-text">{{ post.attractiv_lines }}</p>
-               <a href="{% url 'post-detail' post.id%}" class="btn btn-primary">Continue Reading</a>
+              <p class="card-text">{{ post.content|linebreaks|truncatechars:200 }}<p></p></p>
+
           </div>
         </div>
         </div>
