@@ -15,7 +15,7 @@ urlpatterns=[
     path('post/<str:username>/', UserPostListView.as_view(), name='user-posts'),
 
     path('joinemail/',views.join_page,name='joining-page'),
-    path('send_email_confirm/',views.send_email,name='send_mail')
+    path('send_email_confirm/',views.send_email,name='send_mail'),
 
    # path('joiningemail/' ,views.SendFormEmail.as_view(), name='conformation-email')
     #path('joiningemail/' ,views.send_email, name='conformation-email')

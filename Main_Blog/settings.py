@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'Blog',
     'users',
     'crispy_forms',
-    'storages',
+    #'storages',
 ]
 
 MIDDLEWARE = [
@@ -172,13 +172,13 @@ EMAIL_HOST_PASSWORD='Bluesam@123'
 
 
 
-
-AWS_ACCESS_KEY_ID = 'AKIA3NB2BLWVXIVSLOVL'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'sam-gunjan'
 #
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-#
-#
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = 'AKIA3NB2BLWVXIVSLOVL'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'sam-gunjan'
+# #
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL = None
+# #
+# #
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

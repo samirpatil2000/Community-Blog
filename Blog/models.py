@@ -54,5 +54,7 @@ class Post(models.Model):
     #         img_2.save(self.blog_image_1.path)
     #
     # #
+class ForFun(models.Model):
+    int = models.IntegerField()
 
 

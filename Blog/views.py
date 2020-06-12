@@ -2,7 +2,7 @@ from django.conf import settings
 from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 from django.views.generic import View
-from .models import Post
+from .models import Post ,ForFun
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin  # this is for you canot add post without logged in
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
@@ -44,14 +44,14 @@ def join_page(request):
 def send_email(request):
     if request.method =="GET":
          # name = request.GET.get('name', None)
-         email = request.GET.get('email', None)
-         message = request.GET.get('message', None)
-        # send_mail(subject,message,from_email,to_list,fail_silently=True)
-         subject="Joining request"
-         #message="welcome"
-         from_email=settings.EMAIL_HOST_USER
-         to_list=[email,settings.EMAIL_HOST_USER]
-         send_mail(subject,message,from_email,to_list,fail_silently=True)
+        #  email = request.GET.get('email', None)
+        #  message = request.GET.get('message', None)
+        # # send_mail(subject,message,from_email,to_list,fail_silently=True)
+        #  subject="Joining request"
+        #  #message="welcome"
+        #  from_email=settings.EMAIL_HOST_USER
+        #  to_list=[email,settings.EMAIL_HOST_USER]
+        #  send_mail(subject,message,from_email,to_list,fail_silently=True)
 
          return redirect(request,'Blog/joining_email.html')
 
@@ -151,12 +151,12 @@ class PostCreateView(LoginRequiredMixin,CreateView):
 
     #title = Post.cleaned_data.get('title')
     #email = Post._meta.get_field('email')
-    email='bluekoko53@gmail.com'
-    subject = title,author
-    message = "New Post Is Created "
-    from_email = settings.EMAIL_HOST_USER
-    to_list = [email, settings.EMAIL_HOST_USER]
-    send_mail(subject, message, from_email, to_list, fail_silently=True)
+    # email='bluekoko53@gmail.com'
+    # subject = title,author
+    # message = "New Post Is Created "
+    # from_email = settings.EMAIL_HOST_USER
+    # to_list = [email, settings.EMAIL_HOST_USER]
+    # send_mail(subject, message, from_email, to_list, fail_silently=True)
 
 
     def form_valid(self, form):
@@ -209,3 +209,4 @@ class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
 #         'image_form':image_form,
 #     }
 #     return render(request,'Blog/post_form.html',context)
+
