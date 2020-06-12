@@ -115,7 +115,7 @@ class PostListView(ListView):
 
 class UserPostListView(ListView):
     model = Post
-    template_name = 'blog/user_post.html'
+    template_name = 'Blog/user_post.html'
                                            #<app>/<model>_<viewtype>.html
     context_object_name = 'posts'
    # ordering = ['-date_posted']
@@ -136,7 +136,7 @@ class PostDetailView(DetailView):
 #This is for profile Pic in UserPostListView
 class PostDetailViewForProfile(DetailView):
     model=Post
-    template_name = 'blog/user_public_profile.html'
+    template_name = 'Blog/user_public_profile.html'
 
 
 
